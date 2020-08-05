@@ -45,7 +45,7 @@ if(WIN32)
 endif()
 
 
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Network REQUIRED)
 if(UNIX)
     find_package(Qt5 COMPONENTS DBus REQUIRED)
 endif()
