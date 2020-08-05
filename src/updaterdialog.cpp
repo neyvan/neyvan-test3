@@ -25,7 +25,7 @@
 #include <QFile>
 #include <QStandardPaths>
 #include <QProcess>
-#include <QNetworkAccessManager>
+#include <QtNetwork/QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QDir>
 
