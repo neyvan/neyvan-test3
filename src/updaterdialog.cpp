@@ -26,7 +26,7 @@
 #include <QStandardPaths>
 #include <QProcess>
 #include <QtNetwork/QNetworkAccessManager>
-#include <QNetworkReply>
+#include <QtNetwork/QNetworkReply>
 #include <QDir>
 
 UpdaterDialog::UpdaterDialog(QGitTag *release, int installer, QWidget *parent)
