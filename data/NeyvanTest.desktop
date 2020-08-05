@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Neyvan Test3
+GenericName=Test3
+GenericName[ru]=Переводчик
+Comment=A simple and lightweight translator that allows to translate and speak the selected text using the Google Translate API and much more
+Comment[ru]=Простой и легковесный переводчик, который позволяет переводить и озвучивать выделенный текст с помощью Google Translate API, а так же многое другое
+Keywords=google;yandex;text-to-speech;
+Keywords[ru]=google;yandex;текст в речь;
+Exec=neyvan-test3
+Icon=crow-translate
+Terminal=false
+StartupNotify=false
+Type=Application
+Categories=Office;Network;Qt;
+

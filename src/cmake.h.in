@@ -1,0 +1,11 @@
+#ifndef CMAKE_H
+#define CMAKE_H
+
+#define VERSION_MAJOR @neyvan-test3_VERSION_MAJOR@
+#define VERSION_MINOR @neyvan-test3_VERSION_MINOR@
+#define VERSION_PATCH @neyvan-test3_VERSION_PATCH@
+#define PROJECT_NAME "@PROJECT_NAME@"
+#define APPLICATION_NAME "@APPLICATION_NAME@"
+#define DESKTOP_FILE "@DESKTOP_FILE@"
+
+#endif // CMAKE_H
