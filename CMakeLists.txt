@@ -40,6 +40,11 @@ option(PORTABLE_MODE "Enable portable functionality" OFF)
 set(QAPPLICATION_CLASS QApplication)
 option(QHOTKEY_INSTALL OFF)
 
+if(WIN32)
+    add_subdirectory(src/qgittag)
+endif()
+
+
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 if(UNIX)
     find_package(Qt5 COMPONENTS DBus REQUIRED)
@@ -92,8 +97,13 @@ if(WIN32)
     )
 endif()
 
-
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Widgets)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+if(UNIX)
+    target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::DBus)
+elseif(WIN32)
+    target_link_libraries(${PROJECT_NAME} PRIVATE QGitTag::QGitTag)
+endif()
 
 if(PORTABLE_MODE)
     target_compile_definitions(${PROJECT_NAME} PRIVATE PORTABLE_MODE)
@@ -124,6 +134,6 @@ elseif(WIN32)
 
 endif()
 
-target_link_libraries(neyvan-test3 PRIVATE Qt5::Widgets)
+
 
 
