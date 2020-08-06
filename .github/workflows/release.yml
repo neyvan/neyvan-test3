@@ -56,16 +56,6 @@ jobs:
         cd build
         cmake ${{ matrix.cmake-defines }} ..
         cmake --build . --target package --parallel 2 --config Release
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: false
-        prerelease: false
         
     - name: Upload
       uses: AButler/upload-release-assets@v2.0
