@@ -58,9 +58,22 @@ jobs:
         cd build
         cmake ${{ matrix.cmake-defines }} ..
         cmake --build . --target package --parallel 2 --config Release
-
-    - name: Upload
-      uses: AButler/upload-release-assets@v2.0
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        files: ${{ matrix.upload-files }}
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+        
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ${{ matrix.upload-files }}
